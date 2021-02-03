@@ -93,14 +93,14 @@ public class GroundGenerator : MonoBehaviour
         if (gameOver)
         {
             GUI.color = Color.red;
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200), "Game Over\nYour score is: " + ((int)score) + "\nPress 'Space' to restart");
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 500, 500), "Game Over\nYour score is: " + ((int)score) + "\nPress 'Space' to restart");
         }
         else
         {
             if (!gameStarted)
             {
                 GUI.color = Color.red;
-                GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200), "Press 'Space' to start");
+                GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 500, 500), "Press 'Space' to start");
             }
         }
 
