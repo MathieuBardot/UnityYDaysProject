@@ -11,18 +11,25 @@ public class TestMove : MonoBehaviour
     public float speed = 3.0f;
     public Vector3[] positions = new Vector3[3];
 
+    Rigidbody r;
+    bool grounded = false;
+    Vector3 defaultScale;
+
     // Start is called before the first frame update
     void Start()
     {
+        r = GetComponent<Rigidbody>();
+        r.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        r.freezeRotation = true;
+        r.useGravity = false;
+        defaultScale = transform.localScale;
         // Génération de la position de départ
-        transform.position = positions[1];
+        transform.localPosition = positions[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(0,0,speed * Time.deltaTime, Space.World); //permet d'avancer sans appuyer sur une touche
-
         //Basic movement
         if (transform.position==positions[0])
         {
@@ -56,6 +63,13 @@ public class TestMove : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.position = positions[1];
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            GUIManager.instance.gameOver = true;
         }
     }
 }

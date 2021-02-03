@@ -10,10 +10,9 @@ public class GUIManager : MonoBehaviour
     public GameObject title;
     public GameObject gameOverText;
     public GameObject gameStartText;
+
     public TextMeshProUGUI score;
     public TextMeshProUGUI timer;
-
-    public GameObject obstacle;
 
     public float scoreIncrease = 10.0f;
     [HideInInspector]
@@ -21,9 +20,13 @@ public class GUIManager : MonoBehaviour
     static bool gameStarted = false;
     float time = 0;
     float scoring = 0;
+
+    public static GUIManager instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         gameOverText.SetActive(false);
     }
 
@@ -45,34 +48,22 @@ public class GUIManager : MonoBehaviour
             {
                 if (gameOver)
                 {
-                    //GameOver();
                     //Restart current scene
                     Scene scene = SceneManager.GetActiveScene();
                     SceneManager.LoadScene(scene.name);
+                    title.SetActive(false);
+                    gameStartText.SetActive(false);
                 }
                 else
                 {
                     //Start the game
                     gameStarted = true;
-                    //GameStart();
+                    title.SetActive(false);
+                    gameOverText.SetActive(false);
+                    gameStartText.SetActive(false);
                 }
             }
         }
-    }
-
-    private void GameStart()
-    {
-        title.SetActive(false);
-        gameOverText.SetActive(false);
-        gameStartText.SetActive(false);
-        enabled = false;
-    }
-
-    private void GameOver()
-    {
-        gameOverText.SetActive(true);
-        gameStartText.SetActive(true);
-        enabled = true;
     }
 
     void OnGUI()
@@ -81,8 +72,6 @@ public class GUIManager : MonoBehaviour
         {
             gameOverText.SetActive(true);
             title.SetActive(false);
-            GUI.color = Color.red;
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 400, 400), "Your score is: " + ((int)scoring) + "\nYour time is: " + time);
             gameStartText.SetActive(true);
         }
         else
