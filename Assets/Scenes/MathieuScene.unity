@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 398476192}
   m_Layer: 0
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +321,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: a298e209f215b3041a74b5b8695d7b04, type: 2}
+  - {fileID: 7400000, guid: 79bf81f24c91d1e43b247ba22641a51b, type: 2}
   - {fileID: 7400000, guid: ca3e0d1c0ce763e4797c8b1431da4943, type: 2}
   - {fileID: 7400000, guid: 3e854e5a1ca89034aaee1782efb35186, type: 2}
   m_WrapMode: 0
@@ -1111,7 +1111,6 @@ MonoBehaviour:
   - {x: 5, y: 1.14, z: 20}
   - {x: 10, y: 1.14, z: 20}
   timer: 0
-  speed: 10
   randomNumber: 0
   myObjects: []
   obstacle: {fileID: 1281343354}
