@@ -64,10 +64,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\FirstScene\ObstaclesGenerator.cs" />
-    <Compile Include="Assets\Script\FirstScene\PlayerMove.cs" />
-    <Compile Include="Assets\Script\FirstScene\Test.cs" />
-    <Compile Include="Assets\Script\FirstScene\UIManager.cs" />
+    <Compile Include="Assets\Script\GameCompletVersion\GenerateObstacles.cs" />
+    <Compile Include="Assets\Script\GameCompletVersion\PlayerMove.cs" />
+    <Compile Include="Assets\Script\GameCompletVersion\Test.cs" />
+    <Compile Include="Assets\Script\GameCompletVersion\UIManager.cs" />
+    <Compile Include="Assets\Script\MoveObstaclesVersion\MovePerso.cs" />
+    <Compile Include="Assets\Script\MoveObstaclesVersion\ObstaclesGeneration.cs" />
+    <Compile Include="Assets\Script\OtherVersion\ObstaclesGenerator.cs" />
+    <Compile Include="Assets\Script\SpawnOnlyVersion\Movement.cs" />
+    <Compile Include="Assets\Script\SpawnOnlyVersion\SpawnObstacles.cs" />
     <Compile Include="Assets\Script\TestScene\GroundGenerator.cs" />
     <Compile Include="Assets\Script\TestScene\Platform.cs" />
     <Compile Include="Assets\Script\TestScene\PlayerMovement.cs" />
