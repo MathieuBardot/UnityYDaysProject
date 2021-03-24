@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed = 15.0f;
     public Vector3[] positions = new Vector3[3];
 
     Rigidbody r;
@@ -17,9 +17,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         r = GetComponent<Rigidbody>();
-        r.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-        r.freezeRotation = true;
-        r.useGravity = false;
         defaultScale = transform.localScale;
         // Génération de la position de départ
         transform.localPosition = positions[1];
@@ -29,38 +26,22 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //Basic movement
-        if (transform.position == positions[0])
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.position = positions[1];
-            }
-        }
-
-        if (transform.position == positions[1])
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            if (transform.position.x >= positions[2].x)
             {
                 transform.position = positions[2];
             }
+        }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            if (transform.position.x <= positions[0].x)
             {
                 transform.position = positions[0];
             }
-        }
-
-        if (transform.position == positions[2])
-        {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.position = positions[1];
-            }
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position = positions[1];
         }
     }
     void OnCollisionEnter(Collision collision)

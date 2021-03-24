@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.9.1.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2019.4.12f1</UnityVersion>
@@ -64,13 +64,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\GameCompletVersion\GenerateObstacles.cs" />
-    <Compile Include="Assets\Script\GameCompletVersion\PlayerMove.cs" />
-    <Compile Include="Assets\Script\GameCompletVersion\Test.cs" />
-    <Compile Include="Assets\Script\GameCompletVersion\UIManager.cs" />
+    <Compile Include="Assets\Script\FirstLevel\PlayerMove.cs" />
+    <Compile Include="Assets\Script\FirstLevel\SpawnMoveObstacles.cs" />
+    <Compile Include="Assets\Script\FirstLevel\Test.cs" />
+    <Compile Include="Assets\Script\FirstLevel\UIManager.cs" />
     <Compile Include="Assets\Script\MoveObstaclesVersion\MovePerso.cs" />
     <Compile Include="Assets\Script\MoveObstaclesVersion\ObstaclesGeneration.cs" />
+    <Compile Include="Assets\Script\OtherVersion\GenerateObstacles.cs" />
     <Compile Include="Assets\Script\OtherVersion\ObstaclesGenerator.cs" />
+    <Compile Include="Assets\Script\SecondLevel\GeneratorPlatform.cs" />
+    <Compile Include="Assets\Script\SecondLevel\MovementPerso.cs" />
+    <Compile Include="Assets\Script\SecondLevel\ObstacleSpawn.cs" />
     <Compile Include="Assets\Script\SpawnOnlyVersion\Movement.cs" />
     <Compile Include="Assets\Script\SpawnOnlyVersion\SpawnObstacles.cs" />
     <Compile Include="Assets\Script\TestScene\GroundGenerator.cs" />

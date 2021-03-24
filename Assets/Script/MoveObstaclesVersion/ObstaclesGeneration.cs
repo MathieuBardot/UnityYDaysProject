@@ -19,7 +19,6 @@ public class ObstaclesGeneration : MonoBehaviour
     public TextMeshProUGUI time;
 
     public int randomNumber;
-
     public float scoreIncrease = 10.0f;
 
     private float timer = 0;

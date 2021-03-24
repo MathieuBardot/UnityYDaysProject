@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MovePerso : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public Vector3 jump;
+    public float jumpForce = 5.0f;
+    public float speed = 15.0f;
     public Vector3[] positions = new Vector3[3];
 
     Rigidbody r;
@@ -15,58 +17,62 @@ public class MovePerso : MonoBehaviour
     void Start()
     {
         r = GetComponent<Rigidbody>();
-        r.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-        r.freezeRotation = true;
-        r.useGravity = false;
         defaultScale = transform.localScale;
+        jump = new Vector3(0, 2, 0);
         // Génération de la position de départ
         transform.localPosition = positions[1];
+    }
+
+    void OnCollisionStay()
+    {
+        grounded = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Basic movement
-        if (transform.position == positions[0])
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.position = positions[1];
-            }
-        }
-
-        if (transform.position == positions[1])
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            if (transform.position.x >= positions[2].x)
             {
                 transform.position = positions[2];
             }
+        }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.left* Time.deltaTime * speed);
+            if (transform.position.x <= positions[0].x)
             {
                 transform.position = positions[0];
             }
         }
 
-        if (transform.position == positions[2])
+        // Jump
+        if (Input.GetKeyDown(KeyCode.J) && grounded)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.position = positions[1];
-            }
+            r.AddForce(jump * jumpForce, ForceMode.Impulse);
+            grounded = false;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        //Crouch
+        if (Input.GetKey(KeyCode.K))
         {
-            transform.position = positions[1];
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(defaultScale.x, defaultScale.y * 0.5f, defaultScale.z), Time.deltaTime * 5);
+        }
+        else
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, defaultScale, Time.deltaTime * 5);
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Finish")
         {
             ObstaclesGeneration.instance.gameOver = true;
-            //UIManager.instance.gameOver = true;
         }
     }
 }
