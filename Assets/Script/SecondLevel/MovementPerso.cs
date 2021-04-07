@@ -6,7 +6,7 @@ public class MovementPerso : MonoBehaviour
 {
     public Vector3 jump;
     public float jumpForce = 5.0f;
-    public float speed = 15.0f;
+    public float speed = 12.0f;
     public Vector3[] positions = new Vector3[3];
 
     Rigidbody r;
@@ -34,19 +34,19 @@ public class MovementPerso : MonoBehaviour
         //Basic movement
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-            if (transform.position.x >= positions[2].x)
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            if (transform.position.x <= positions[0].x)
             {
-                transform.position = positions[2];
+                transform.position = new Vector3(positions[0].x, positions[0].y, transform.localPosition.z);
             }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
-            if (transform.position.x <= positions[0].x)
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            if (transform.position.x >= positions[2].x)
             {
-                transform.position = positions[0];
+                transform.position = new Vector3(positions[2].x,positions[2].y, transform.localPosition.z);
             }
         }
 
@@ -73,7 +73,6 @@ public class MovementPerso : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             GeneratorPlatform.instance.gameOver = true;
-            //UIManager.instance.gameOver = true;
         }
     }
 }

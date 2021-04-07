@@ -27,11 +27,11 @@ public class ObstacleSpawn : MonoBehaviour
         Obstacles[randomObject].transform.position = positions[randomNumber];
         if (Obstacles[randomObject] == GameObject.Find("ObstacleCrouch"))
         {
-            Obstacles[randomObject].transform.Translate(new Vector3(-4, 0.5f, 0));
+            Obstacles[randomObject].transform.Translate(new Vector3(-4, 1.0f, 0));
         }
         if (Obstacles[randomObject] == GameObject.Find("ObstacleAvoid"))
         {
-            Obstacles[randomObject].transform.Translate(new Vector3(2, 1, 0));
+            Obstacles[randomObject].transform.Translate(new Vector3(3, 2.0f, 0));
         }
     }
 

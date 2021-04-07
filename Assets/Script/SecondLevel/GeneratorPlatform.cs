@@ -16,8 +16,6 @@ public class GeneratorPlatform : MonoBehaviour
     List<ObstacleSpawn> spawnedTiles = new List<ObstacleSpawn>();
     int nextTileToActivate = -1;
 
-    public Vector3[] positions = new Vector3[3];
-    public GameObject[] Obstacles;
     public GameObject title;
     public GameObject gameOverText;
     public GameObject gameStartText;
@@ -26,7 +24,6 @@ public class GeneratorPlatform : MonoBehaviour
     public TextMeshProUGUI score;
     public TextMeshProUGUI time;
 
-    public int randomNumber;
     public float scoreIncrease = 10.0f;
 
     private float timer = 0;
@@ -71,7 +68,6 @@ public class GeneratorPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move the object upward in world space x unit/second.
         //Increase speed the higher score we get
         if (!gameOver && gameStarted)
         {
@@ -83,7 +79,7 @@ public class GeneratorPlatform : MonoBehaviour
             time.text = $"Time : {fullTimer}";
         }
 
-        if (mainCamera.WorldToViewportPoint(spawnedTiles[0].endPoint.position).z < 0)
+        if (mainCamera.WorldToViewportPoint(spawnedTiles[0].endPoint.position).y < 0)
         {
             //Move the tile to the front if it's behind the Camera
             ObstacleSpawn tileTmp = spawnedTiles[0];
