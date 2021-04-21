@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\FirstLevel\SpawnMoveObstacles.cs" />
     <Compile Include="Assets\Script\FirstLevel\Test.cs" />
     <Compile Include="Assets\Script\FirstLevel\UIManager.cs" />
+    <Compile Include="Assets\Script\MenuScript.cs" />
     <Compile Include="Assets\Script\MoveObstaclesVersion\MovePerso.cs" />
     <Compile Include="Assets\Script\MoveObstaclesVersion\ObstaclesGeneration.cs" />
     <Compile Include="Assets\Script\OtherVersion\GenerateObstacles.cs" />

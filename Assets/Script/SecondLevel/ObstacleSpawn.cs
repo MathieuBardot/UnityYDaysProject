@@ -9,7 +9,7 @@ public class ObstacleSpawn : MonoBehaviour
     public Transform startPoint;
     public Transform endPoint;
 
-    public Vector3[] positions = new Vector3[3];
+    //public Vector3[] positions = new Vector3[3];
     public GameObject[] Obstacles;
     public int randomNumber;
 
@@ -23,7 +23,7 @@ public class ObstacleSpawn : MonoBehaviour
         Obstacles[randomObject].SetActive(true);
 
         // Choose at a random position for spawn
-        randomNumber = Random.Range(0, positions.Length);
+        /*randomNumber = Random.Range(0, positions.Length);
         Obstacles[randomObject].transform.position = positions[randomNumber];
         if (Obstacles[randomObject] == GameObject.Find("ObstacleCrouch"))
         {
@@ -32,7 +32,7 @@ public class ObstacleSpawn : MonoBehaviour
         if (Obstacles[randomObject] == GameObject.Find("ObstacleAvoid"))
         {
             Obstacles[randomObject].transform.Translate(new Vector3(3, 2.0f, 0));
-        }
+        }*/
     }
 
     public void DeactivateAllObstacles()

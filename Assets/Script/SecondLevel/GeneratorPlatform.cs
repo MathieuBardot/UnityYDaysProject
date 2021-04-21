@@ -10,8 +10,8 @@ public class GeneratorPlatform : MonoBehaviour
     public Transform startPoint; //Point from where ground tiles will start
     public ObstacleSpawn tilePrefab;
     public float movingSpeed = 12;
-    public int tilesToPreSpawn = 15; //How many tiles should be pre-spawned
-    public int tilesWithoutObstacles = 3; //How many tiles at the beginning should not have obstacles, good for warm-up
+    public int tilesToPreSpawn = 5; //How many tiles should be pre-spawned
+    public int tilesWithoutObstacles = 1; //How many tiles at the beginning should not have obstacles, good for warm-up
 
     List<ObstacleSpawn> spawnedTiles = new List<ObstacleSpawn>();
     int nextTileToActivate = -1;

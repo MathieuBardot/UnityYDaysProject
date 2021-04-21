@@ -46,7 +46,7 @@ public class SpawnMoveObstacles : MonoBehaviour
         {
             fullTimer += Time.deltaTime;
             timer += Time.deltaTime;
-            if (timer > 3)
+            if (timer > 2)
             {
                 SpawnListObstacles();
                 //Set to 0 for spawn an other obstacles
@@ -93,9 +93,17 @@ public class SpawnMoveObstacles : MonoBehaviour
         Obstacles[randomObject].transform.position = positions[randomNumber];
         if (Obstacles[randomObject] == GameObject.Find("ObstacleCrouch"))
         {
-            Obstacles[randomObject].transform.Translate(new Vector3(-4, 0.5f, 0));
+            Obstacles[randomObject].transform.Translate(new Vector3(-4, 0, 0));
         }
         if (Obstacles[randomObject] == GameObject.Find("ObstacleAvoid"))
+        {
+            Obstacles[randomObject].transform.Translate(new Vector3(2, 1, 0));
+        }
+        if (Obstacles[randomObject] == GameObject.Find("ObstacleCrouch2"))
+        {
+            Obstacles[randomObject].transform.Translate(new Vector3(-4, 0, 0));
+        }
+        if (Obstacles[randomObject] == GameObject.Find("ObstacleAvoid2"))
         {
             Obstacles[randomObject].transform.Translate(new Vector3(2, 1, 0));
         }
